@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet } from 'react-native';
-import styled from 'styled-components/native'
+import styled from 'styled-components/native';
+import user from '../reducers/user.js';
 
-export const StartPage = () => {
+export const StartPage = ({navigation}) => {
+  const dispatch = useDispatch();
+  const accessToken = useSelector((store) => store.user.accessToken);
+  
+  useEffect(() => {
+      if (!accessToken) {() => navigation.navigate('LogIn')}
+  }, [accessToken])
+  useEffect(() => {
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": accessToken
+        }
+    }
+}, []);
+
   return (
     <View style={styles.container}>
       <Text>Startpage</Text>
+      <NativeButton onPress={() => navigation.navigate('GamePage')}><BtnTxt>start</BtnTxt></NativeButton>
       <StatusBar style="auto" />
     </View>
   );

@@ -14,8 +14,9 @@ export const LogIn = ({navigation}) => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
 
+  
   useEffect(() => {
-      if (accessToken) {() => navigation.navigate('StartPage')}
+      if (accessToken) {() => navigate('StartPage')}
   }, [accessToken])
 
   const passwordInputRef = createRef();
@@ -29,10 +30,11 @@ export const LogIn = ({navigation}) => {
           },
           body: JSON.stringify({username: username, password: password })
       }
-      fetch(API_URL(), options)
+      fetch(API_URL('login'), options)
           .then(response => response.json())
           .then(data => {
               if(data.success) {
+                alert("Logged IN! ");
                   batch(()=> {
                       dispatch(user.actions.setUsername(data.response.username));
                       dispatch(user.actions.setUserId(data.response.id))
@@ -54,8 +56,8 @@ export const LogIn = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-    <View style={styles.SectionStyle} onPress={onFormSubmit}>
-              <TextInput 
+    <View style={styles.SectionStyle}>
+              <TextInput onSubmit={onFormSubmit}
                 placeholder="Enter username" 
                 autoCapitalize="none"
                 value={username} 
@@ -78,7 +80,8 @@ export const LogIn = ({navigation}) => {
               />
             </View>
 
-            <NativeButton onPress={() => navigation.navigate('StartPage')}><BtnTxt>Logins</BtnTxt></NativeButton>
+            <NativeButton onPress={onFormSubmit}><BtnTxt>Logins</BtnTxt></NativeButton>
+
             <Text
               style={styles.registerTextStyle}
               onPress={() => navigation.navigate('Register')}>

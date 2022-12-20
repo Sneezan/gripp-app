@@ -2,7 +2,7 @@
 import React, {useEffect, useState, createRef} from "react";
 import { useDispatch, useSelector, batch } from "react-redux"
 //import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, TextInput, View, TouchableOpacity} from 'react-native';
+import { StyleSheet, TextInput, View, Button} from 'react-native';
 import styled from 'styled-components/native'
 import { API_URL } from "../utils/utils.js";
 import user from "../reducers/user.js";
@@ -57,7 +57,7 @@ export const LogIn = ({navigation}) => {
   return (
     <View style={styles.container}>
     <View style={styles.SectionStyle}>
-              <TextInput onSubmit={onFormSubmit}
+              <TextInput 
                 placeholder="Enter username" 
                 autoCapitalize="none"
                 value={username} 
@@ -68,7 +68,7 @@ export const LogIn = ({navigation}) => {
                 blurOnSubmit={false}
               /> 
 
-              <TextInput onSubmit={onFormSubmit}
+              <TextInput 
                 placeholder="Enter Password" 
                 ref={passwordInputRef}
                 value={password} 
@@ -80,7 +80,13 @@ export const LogIn = ({navigation}) => {
               />
             </View>
 
-            <NativeButton onPress={onFormSubmit}><BtnTxt>Logins</BtnTxt></NativeButton>
+            <Button 
+             title="login"
+             onPress={onFormSubmit}
+             type="submit"
+             />
+             
+
 
             <Text
               style={styles.registerTextStyle}
@@ -104,14 +110,6 @@ const styles = StyleSheet.create({
     },
   });
   
-const NativeButton = styled.TouchableOpacity`
-background-color: white;
-border-radius: 10px;
-width: 110px;
-text-align: center;
-height: 40px;
-margin: 10px;
-`
 
 const BtnTxt = styled.Text`
 font-size: 30px;

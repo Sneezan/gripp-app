@@ -13,10 +13,9 @@ export const LogIn = ({navigation}) => {
   
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
-
   
   useEffect(() => {
-      if (accessToken) {() => navigate('StartPage')}
+      if (accessToken) {navigation.navigate('StartPage')}  // Auth Navigation Works!!
   }, [accessToken])
 
   const passwordInputRef = createRef();
@@ -55,8 +54,8 @@ export const LogIn = ({navigation}) => {
 
 
   return (
-    <View style={styles.container}>
-    <View style={styles.SectionStyle}>
+    <View style={styles.container} onPress={(onFormSubmit)}>
+    <View style={styles.SectionStyle} >
               <TextInput 
                 placeholder="Enter username" 
                 autoCapitalize="none"
@@ -77,12 +76,13 @@ export const LogIn = ({navigation}) => {
                 onChangeText={setPassword}
                 underlineColorAndroid="#f000"
                 returnKeyType="next" 
+          
               />
             </View>
 
             <Button 
              title="login"
-             onPress={onFormSubmit}
+             onPress={(onFormSubmit)}
              type="submit"
              />
              

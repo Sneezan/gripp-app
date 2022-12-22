@@ -33,7 +33,7 @@ export const LogIn = ({navigation}) => {
           .then(response => response.json())
           .then(data => {
               if(data.success) {
-                alert("Logged IN! ");
+              //  alert("Logged IN! ");
                   batch(()=> {
                       dispatch(user.actions.setUsername(data.response.username));
                       dispatch(user.actions.setUserId(data.response.id))
@@ -96,14 +96,14 @@ export const LogIn = ({navigation}) => {
 
 
 const Text = styled.Text`
-color: blue;
+color: white;
 font-size: 40px; 
 `
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'white',
+      backgroundColor: '#830808',
       alignItems: 'center',
       justifyContent: 'center',
     },

@@ -5,15 +5,13 @@ import { View, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 import { API_URL } from "../utils/utils.js";
 import user from '../reducers/user.js';
-import thoughts from '../reducers/thoughts'
-
 
 export const StartPage = ({navigation}) => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
  
   useEffect(() => {
-      if (!accessToken) {() => navigation.navigate('LogIn')}
+      if (!accessToken) {navigation.navigate('Log in')}
   }, [accessToken])
 
   useEffect(() => {
@@ -26,15 +24,7 @@ export const StartPage = ({navigation}) => {
     }
     fetch(API_URL('profile'), options)
         .then(res => res.json())
-        .then(data => {
-            if(data.success) {
-                dispatch(thoughts.actions.setItems(data.response));
-                dispatch(thoughts.actions.setError(null));
-            } else {
-                dispatch(thoughts.actions.setItems([]));
-                dispatch(thoughts.actions.setError(data.response));
-            }
-        })
+        .then(data => {data.success})
 }, []);
 
   return (

@@ -33,7 +33,7 @@ export const Register = ({navigation}) => {
           .then(response => response.json())
           .then(data => {
               if(data.success) {
-                alert("Registered! ");
+             //  alert("Registered! ");
                   batch(()=> {
                       dispatch(user.actions.setUsername(data.response.username));
                       dispatch(user.actions.setUserId(data.response.id))
@@ -64,8 +64,7 @@ export const Register = ({navigation}) => {
                 returnKeyType="next"
                 onSubmitEditing={() => passwordInputRef.current &&  passwordInputRef.current.focus()}
                 underlineColorAndroid="#f000"
-                blurOnSubmit={false}
-              /> 
+                blurOnSubmit={false}/> 
 
               <TextInput 
                 placeholder="Enter Password" 
@@ -75,22 +74,19 @@ export const Register = ({navigation}) => {
                 secureTextEntry={true}
                 onChangeText={setPassword}
                 underlineColorAndroid="#f000"
-                returnKeyType="next" 
-          
-              />
-            </View>
+                returnKeyType="next"/>
+    </View>
 
             <Button 
              title="register"
              onPress={(onFormSubmit)}
              type="submit"
              />
-             
-
 
              <Text 
              title="not a member? registre here!"
-             onPress={() => navigation.navigate('Log in')}> already a member? log in here! </Text> 
+             onPress={() => navigation.navigate('Log in')}> already a member? log in here! 
+             </Text> 
     </View>
   );
 }

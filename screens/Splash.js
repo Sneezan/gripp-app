@@ -30,15 +30,17 @@ const styles = StyleSheet.create({
 });
 
 const NativeButton = styled.TouchableOpacity`
-background-color: white;
+background-color: none;
 border-radius: 10px;
 width: 110px;
 text-align: center;
 height: 40px;
 margin: 10px;
+border: 2px solid white;
 `
 
 const BtnTxt = styled.Text`
 font-size: 30px;
 text-align: center;
+color: white;
 `

@@ -7,7 +7,7 @@ import styled from 'styled-components/native'
 import { API_URL } from "../utils/utils.js";
 import user from "../reducers/user.js";
 
-export const LogIn = ({navigation}) => {
+export const Register = ({navigation}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   
@@ -29,11 +29,11 @@ export const LogIn = ({navigation}) => {
           },
           body: JSON.stringify({username: username, password: password })
       }
-      fetch(API_URL('login'), options)
+      fetch(API_URL('register'), options)
           .then(response => response.json())
           .then(data => {
               if(data.success) {
-                alert("Logged IN! ");
+                alert("Registered! ");
                   batch(()=> {
                       dispatch(user.actions.setUsername(data.response.username));
                       dispatch(user.actions.setUserId(data.response.id))
@@ -41,7 +41,7 @@ export const LogIn = ({navigation}) => {
                       dispatch(user.actions.setError(null));
                   });
               } else {
-                  alert("error, could not find user - make sure you've registered and that the password is correct ");
+                  alert("error, could not register ");
                   batch (() => {
                       dispatch(user.actions.setUsername(null));
                       dispatch(user.actions.setUserId(null))
@@ -81,25 +81,24 @@ export const LogIn = ({navigation}) => {
             </View>
 
             <Button 
-             title="login"
+             title="register"
              onPress={(onFormSubmit)}
              type="submit"
              />
              
+
+
              <Text 
              title="not a member? registre here!"
-             onPress={() => navigation.navigate('Register')}>  not a member? register here! </Text> 
-             
+             onPress={() => navigation.navigate('Log in')}> already a member? log in here! </Text> 
     </View>
   );
 }
 
-
 const Text = styled.Text`
-color: blue;
-font-size: 40px; 
+color: red;
+font-size: 40px;
 `
-
 const styles = StyleSheet.create({
     container: {
       flex: 1,

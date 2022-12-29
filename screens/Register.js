@@ -109,3 +109,4 @@ const BtnTxt = styled.Text`
 font-size: 30px;
 text-align: center;
 `
+

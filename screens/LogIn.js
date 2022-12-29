@@ -2,10 +2,13 @@
 import React, {useEffect, useState, createRef} from "react";
 import { useDispatch, useSelector, batch } from "react-redux"
 //import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, TextInput, View, Button} from 'react-native';
+import { StyleSheet, View} from 'react-native';
 import styled from 'styled-components/native'
 import { API_URL } from "../utils/utils.js";
 import user from "../reducers/user.js";
+
+import { LogInput } from "../components/InputStyles.js";
+import { BtnTxt, NativeBtn } from "../components/ButtonStyles.js";
 
 export const LogIn = ({navigation}) => {
   const [username, setUsername] = useState("");
@@ -55,9 +58,13 @@ export const LogIn = ({navigation}) => {
 
   return (
     <View style={styles.container} onPress={(onFormSubmit)}>
+      <HeaderComponent>
+         <Header>Ready to get a <StyledText>gripp?</StyledText></Header> 
+         <Text> LOG INTO YOUR ACCOUNT </Text> 
+      </HeaderComponent>
     <View style={styles.SectionStyle} >
-              <TextInput 
-                placeholder="Enter username" 
+              <LogInput
+                placeholder="username" 
                 autoCapitalize="none"
                 value={username} 
                 onChangeText={setUsername}
@@ -67,8 +74,8 @@ export const LogIn = ({navigation}) => {
                 blurOnSubmit={false}
               /> 
 
-              <TextInput 
-                placeholder="Enter Password" 
+              <LogInput 
+                placeholder=" Password" 
                 ref={passwordInputRef}
                 value={password} 
                 blurOnSubmit={false}
@@ -80,11 +87,9 @@ export const LogIn = ({navigation}) => {
               />
             </View>
 
-            <Button 
-             title="login"
+            <NativeBtn 
              onPress={(onFormSubmit)}
-             type="submit"
-             />
+             type="submit"><BtnTxt>Log in</BtnTxt></NativeBtn>
              
              <Text 
              title="not a member? registre here!"
@@ -97,9 +102,20 @@ export const LogIn = ({navigation}) => {
 
 const Text = styled.Text`
 color: white;
-font-size: 40px; 
+font-size: 20px; 
+margin: 10px;
+`
+const Header = styled.Text`
+font-size: 36px;
+`
+const StyledText = styled.Text`
+color: white; 
 `
 
+const HeaderComponent = styled.View`
+text-align: center;
+margin: 10px;
+`
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -110,7 +126,3 @@ const styles = StyleSheet.create({
   });
   
 
-const BtnTxt = styled.Text`
-font-size: 30px;
-text-align: center;
-`

@@ -5,8 +5,9 @@ import styled from 'styled-components/native'
 import { View, StyleSheet } from 'react-native';
 import { API_URL } from "../utils/utils.js";
 
+
 export const GamePage = () => {
-  const [statements, setStatement] = useState({})
+  const [statements, setStatement] = useState([''])
 
   const fetchStatements = () => {
    fetch(API_URL('random'))  //statements can't be on local host when viewing expo IOS
@@ -24,21 +25,25 @@ export const GamePage = () => {
   return (
 <View style={styles.container}>
         <Swiper
-            cards={[`${statements.body}`, `${statements.body}`, `${statements.body}`]}  // need to loop this?
-            renderCard={(card) => {
+            cards={[`${statements.body}`]} // need to loop this?   showcases every lettor on ONE slide{`${statements.body}`}
+            renderCard={(card)=> {
+       
                 return (
                   <View style={styles.wrap}>
-                    <CardStyle style={styles.card}>
-                        <Text style={styles.text}>{card}</Text>
-                    </CardStyle>
-                    </View>
+                  <CardStyle style={styles.card}>
+                      <Text style={styles.text}>{card}</Text>
+                  </CardStyle>
+                  </View>
                 )
             }}
+
             onSwiped={(cardIndex) => {console.log(cardIndex)}}
-            onSwipedAll={() => {console.log('onSwipedAll')}}
             cardIndex={0}
+            infinite={false}
+            showSecondCard={true}
             backgroundColor={'#2d2d2d'}
-            stackSize= {3}>
+            stackSize={3}
+            onSwipedAll={() => {console.log('onSwipedAll')}}>
         </Swiper>
     </View>
   );
@@ -51,7 +56,6 @@ const styles = StyleSheet.create({
 
     },
     wrap: {
-      flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -68,5 +72,6 @@ const CardStyle = styled.View`
 width: 330px;
 height: 480px;
 background-color: white ;
-border-radius: 5%;
+border: 0.3px solid black; 
+border-radius: 5%;   //looks different on phone vs web? 15 good on phone but looks ridiculous on web
 `

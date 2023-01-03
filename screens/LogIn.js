@@ -40,6 +40,7 @@ export const LogIn = ({navigation}) => {
               //  alert("Logged IN! ");
                   batch(()=> {
                       dispatch(user.actions.setUsername(data.response.username));
+                      dispatch(user.actions.setMember(data.response.userCreatedAt));
                       dispatch(user.actions.setUserId(data.response.id))
                       dispatch(user.actions.setAccessToken(data.response.accessToken));
                       dispatch(user.actions.setError(null));
@@ -48,6 +49,7 @@ export const LogIn = ({navigation}) => {
                   alert("error, could not find user - make sure you've registered and that the password is correct ");
                   batch (() => {
                       dispatch(user.actions.setUsername(null));
+                      dispatch(user.actions.setMember(null));
                       dispatch(user.actions.setUserId(null))
                       dispatch(user.actions.setAccessToken(null));
                       dispatch(user.actions.setError(data.response));

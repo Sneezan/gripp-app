@@ -9,7 +9,10 @@ import user from '../reducers/user.js';
 export const StartPage = ({navigation}) => {
   const [profile, setProfile] = useState([""]);
   const dispatch = useDispatch();
+  
   const accessToken = useSelector((store) => store.user.accessToken);
+  const userName = useSelector((store) => store.user.username)
+  const userCreated = useSelector((store) => store.user.userCreatedAt)
 
   useEffect(() => {
       if (!accessToken) {navigation.navigate('Log in')}
@@ -25,8 +28,8 @@ export const StartPage = ({navigation}) => {
     } 
     fetch(API_URL('profile'), options)
         .then(res => res.json())
-        .then((data) => {
-          setProfile(data.response)
+        .then((response) => {
+          setProfile(response)
         })
 }, []);
 
@@ -34,7 +37,8 @@ export const StartPage = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text> {profile.username} </Text>
+      <Text> {userName} </Text>
+      <Text> {userCreated} </Text>
       <Text>Startpage</Text>
       <NativeButton onPress={() => navigation.navigate('GamePage')}><BtnTxt>start</BtnTxt></NativeButton>
       <NativeButton onPress={() => {navigation.navigate('Log in'); dispatch(user.actions.setAccessToken(null));}}><BtnTxt>sign out</BtnTxt></NativeButton>

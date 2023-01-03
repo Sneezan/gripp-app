@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet } from 'react-native';
@@ -7,9 +7,10 @@ import { API_URL } from "../utils/utils.js";
 import user from '../reducers/user.js';
 
 export const StartPage = ({navigation}) => {
+  const [profile, setProfile] = useState([""]);
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
- 
+
   useEffect(() => {
       if (!accessToken) {navigation.navigate('Log in')}
   }, [accessToken])
@@ -21,20 +22,28 @@ export const StartPage = ({navigation}) => {
             "Content-Type": "application/json",
             "Authorization": accessToken
         }
-    }
+    } 
     fetch(API_URL('profile'), options)
         .then(res => res.json())
-        .then(data => {data.success})
+        .then((data) => {
+          setProfile(data.response)
+        })
 }, []);
+
+
 
   return (
     <View style={styles.container}>
+      <Text> {profile.username} </Text>
       <Text>Startpage</Text>
       <NativeButton onPress={() => navigation.navigate('GamePage')}><BtnTxt>start</BtnTxt></NativeButton>
+      <NativeButton onPress={() => {navigation.navigate('Log in'); dispatch(user.actions.setAccessToken(null));}}><BtnTxt>sign out</BtnTxt></NativeButton>
       <StatusBar style="auto" />
     </View>
   );
 }
+
+
 
 const Text = styled.Text`
 color: red;

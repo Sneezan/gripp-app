@@ -9,6 +9,7 @@ import user from "../reducers/user.js";
 
 import { LogInput } from "../components/InputStyles.js";
 import { BtnTxt, NativeBtn } from "../components/ButtonStyles.js";
+import { withTheme } from "styled-components";
 
 export const LogIn = ({navigation}) => {
   const [username, setUsername] = useState("");
@@ -64,7 +65,8 @@ export const LogIn = ({navigation}) => {
       </HeaderComponent>
     <View style={styles.SectionStyle} >
               <LogInput
-                placeholder="username" 
+                placeholder="USERNAME" 
+                placeholderTextColor="#fff" 
                 autoCapitalize="none"
                 value={username} 
                 onChangeText={setUsername}
@@ -75,7 +77,8 @@ export const LogIn = ({navigation}) => {
               /> 
 
               <LogInput 
-                placeholder=" Password" 
+                placeholder="PASSWORD" 
+                placeholderTextColor="#fff" 
                 ref={passwordInputRef}
                 value={password} 
                 blurOnSubmit={false}
@@ -104,6 +107,7 @@ const Text = styled.Text`
 color: white;
 font-size: 20px; 
 margin: 10px;
+text-align: center;
 `
 const Header = styled.Text`
 font-size: 36px;

@@ -2,25 +2,32 @@
 import React, {useEffect, useState, createRef} from "react";
 import { useDispatch, useSelector, batch } from "react-redux"
 //import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View} from 'react-native';
-import styled from 'styled-components/native'
+import { StyleSheet, View, TouchableOpacity, KeyboardAvoidingView, Keyboard, ScrollView} from 'react-native';
 import { API_URL } from "../utils/utils.js";
 import user from "../reducers/user.js";
 
 import { LogInput } from "../components/InputStyles.js";
-import { BtnTxt, NativeBtn } from "../components/ButtonStyles.js";
-import { withTheme } from "styled-components";
+import { ActionBtn, ActionBtnTxt, AlternativeBtn, AlternativeBtnTxt } from "../components/ButtonStyles.js";
+import { Text, Header, StyledText, HeaderComponent } from "../components/TextStyles.js";
+import  { Octicons }  from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons'; 
 
 export const LogIn = ({navigation}) => {
-  const [username, setUsername] = useState("");
+  const [hidePassword, setHidePassword] = useState(true)
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   
   useEffect(() => {
       if (accessToken) {navigation.navigate('StartPage')}  // Auth Navigation Works!!
   }, [accessToken])
+  
+  const showPassword = () => {
+    setHidePassword(!hidePassword)
+  }
 
   const passwordInputRef = createRef();
 
@@ -31,7 +38,7 @@ export const LogIn = ({navigation}) => {
           headers: {
               "Content-Type": "application/json"
           },
-          body: JSON.stringify({username: username, password: password })
+          body: JSON.stringify({email: email, password: password })
       }
       fetch(API_URL('login'), options)
           .then(response => response.json())
@@ -40,6 +47,7 @@ export const LogIn = ({navigation}) => {
               //  alert("Logged IN! ");
                   batch(()=> {
                       dispatch(user.actions.setUsername(data.response.username));
+                      dispatch(user.actions.setEmail(data.response.email));
                       dispatch(user.actions.setMember(data.response.userCreatedAt));
                       dispatch(user.actions.setUserId(data.response.id))
                       dispatch(user.actions.setAccessToken(data.response.accessToken));
@@ -49,6 +57,7 @@ export const LogIn = ({navigation}) => {
                   alert("error, could not find user - make sure you've registered and that the password is correct ");
                   batch (() => {
                       dispatch(user.actions.setUsername(null));
+                      dispatch(user.actions.setEmail(null));
                       dispatch(user.actions.setMember(null));
                       dispatch(user.actions.setUserId(null))
                       dispatch(user.actions.setAccessToken(null));
@@ -58,8 +67,12 @@ export const LogIn = ({navigation}) => {
           })
   }
 
-
   return (
+    <KeyboardAvoidingView
+    behavior="padding"
+    style={styles.container}
+  >
+    <ScrollView keyboardShouldPersistTaps="handled">
     <View style={styles.container} onPress={(onFormSubmit)}>
       <HeaderComponent>
          <Header>Ready to get a <StyledText>gripp?</StyledText></Header> 
@@ -67,61 +80,61 @@ export const LogIn = ({navigation}) => {
       </HeaderComponent>
     <View style={styles.SectionStyle} >
               <LogInput
-                placeholder="USERNAME" 
+                placeholder="email" 
                 placeholderTextColor="#fff" 
                 autoCapitalize="none"
-                value={username} 
-                onChangeText={setUsername}
+                value={email} 
+                onChangeText={setEmail}
                 returnKeyType="next"
                 onSubmitEditing={() => passwordInputRef.current &&  passwordInputRef.current.focus()}
                 underlineColorAndroid="#f000"
                 blurOnSubmit={false}
+                keyboardType='email-address'
+                keyboardAppearance='dark'
               /> 
-
+              <MaterialIcons name="alternate-email" size={24} style={styles.emailIcon} />
+              <View style={{width:100}}>
               <LogInput 
                 placeholder="PASSWORD" 
                 placeholderTextColor="#fff" 
+                autoCapitalize='none'
                 ref={passwordInputRef}
+                secureTextEntry={hidePassword === true ? true : false}
                 value={password} 
                 blurOnSubmit={false}
-                secureTextEntry={true}
                 onChangeText={setPassword}
                 underlineColorAndroid="#f000"
                 returnKeyType="next" 
-          
-              />
+                keyboardAppearance='dark'
+                onPress={Keyboard.dismiss}
+              /> 
+                </View>
+
+               <Feather name="lock" size={24} color="black" style={styles.lockIcon} />
+               <TouchableOpacity onPress={showPassword}>
+                  <Octicons
+                    name={hidePassword === true ? 'eye-closed' : 'eye'}
+                    size={20}
+                    style={styles.eyeIcon}
+                  />
+                </TouchableOpacity>
             </View>
 
-            <NativeBtn 
+            <ActionBtn 
              onPress={(onFormSubmit)}
-             type="submit"><BtnTxt>Log in</BtnTxt></NativeBtn>
-             
-             <Text 
-             title="not a member? registre here!"
-             onPress={() => navigation.navigate('Register')}>  not a member? register here! </Text> 
-             
+             type="submit"><ActionBtnTxt>get a gripp</ActionBtnTxt></ActionBtn>
+              <Text>or</Text>
+             <AlternativeBtn 
+             onPress={() => navigation.navigate('Register')}
+             type="submit"><AlternativeBtnTxt>join here</AlternativeBtnTxt></AlternativeBtn>
+
     </View>
+     </ScrollView>
+     <View style={{ height:60 }} />
+    </KeyboardAvoidingView>
   );
 }
 
-
-const Text = styled.Text`
-color: white;
-font-size: 20px; 
-margin: 10px;
-text-align: center;
-`
-const Header = styled.Text`
-font-size: 36px;
-`
-const StyledText = styled.Text`
-color: white; 
-`
-
-const HeaderComponent = styled.View`
-text-align: center;
-margin: 10px;
-`
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -129,6 +142,31 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    lockIcon: {
+      color: 'white',
+      zIndex: 1,
+      position: 'absolute',
+      left: 20,
+      bottom: 65,
+    },
+    emailIcon: {
+      color: 'white',
+      zIndex: 1,
+      position: 'absolute',
+      left: 20,
+      bottom: 125,
+    },
+    eyeIcon: {
+      color: 'white',
+      zIndex: 1,
+      position: 'absolute',
+      right: 25,
+      bottom: 20,
+    },
+    SectionStyle: {
+      paddingTop: 10,
+      paddingBottom: 50,
+    }
   });
   
 

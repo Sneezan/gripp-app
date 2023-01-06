@@ -32,11 +32,11 @@ const App = () => {
         },
       }}
     >
-   <Stack.Screen name="Home" component={Splash} options={{ title: 'My home' }}/> 
-    <Stack.Screen name="Log in" component={LogIn} options={{ title: '',  headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}} />
+ {/* <Stack.Screen name="Home" component={Splash} options={{ title: 'My home' }}/>  */}
+     <Stack.Screen name="Log in" component={LogIn} options={{ title: '',  headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}} /> 
     <Stack.Screen name="Register" component={Register} options={{ title: '' }} />
     <Stack.Screen name="StartPage" component={StartPage} options={{ title: ' ' }}/>    
-    <Stack.Screen name="GamePage" component={GamePage} options={{ title: '' }}/>
+    <Stack.Screen name="GamePage" component={GamePage} options={{ title: '' }}/> 
     </Stack.Navigator>
     </NavigationContainer>
     </Provider>

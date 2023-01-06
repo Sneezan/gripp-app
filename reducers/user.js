@@ -8,6 +8,7 @@ import { createSlice } from "@reduxjs/toolkit";
         userId: null,
         accessToken: null,
         userCreatedAt: null,
+        email: null,
     },
     reducers: {
         setMember: (store, action) => {
@@ -15,6 +16,9 @@ import { createSlice } from "@reduxjs/toolkit";
         },
         setUsername: (store, action) => {
             store.username = action.payload;
+        },
+        setEmail: (store, action) => {
+            store.email = action.payload;
         },
         setError: (store, action) => {
             store.error = action.payload;

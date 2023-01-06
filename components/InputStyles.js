@@ -7,9 +7,7 @@ export const LogInput = styled.TextInput`
  font-size: 15px;
  width: 300px;
  color: white;
- background-color: #760404;
- text-align: center;
- border-bottom-width: 1px;
- border-color: red;
- text-transform: uppercase;
+ padding-left: 50px;
+ border-bottom-width: 1.5px;
+ border-color: #ffff;
 `

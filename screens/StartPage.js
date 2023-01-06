@@ -50,8 +50,8 @@ export const StartPage = ({navigation}) => {
 
 
 const Text = styled.Text`
-color: red;
-font-size: 40px;
+color: white;
+font-size: 30px;
 `
 const styles = StyleSheet.create({
     container: {

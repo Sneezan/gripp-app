@@ -1,7 +1,7 @@
 import * as React  from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Splash } from './screens/Splash';
+import { Welcome } from './screens/Welcome';
 import { LogIn } from './screens/LogIn';
 import { StartPage } from './screens/StartPage';
 import { Provider } from 'react-redux';
@@ -9,6 +9,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import user from './reducers/user';
 import { GamePage } from './screens/GamePage';
 import { Register } from './screens/Register';
+import { Splash } from './screens/Splash';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +33,8 @@ const App = () => {
         },
       }}
     >
- {/* <Stack.Screen name="Home" component={Splash} options={{ title: 'My home' }}/>  */}
+    {/* <Stack.Screen name="Splash" component={Splash} options={{ title: 'My home' }}/>  */}
+    <Stack.Screen name="Start" component={Welcome} options={{ title: 'My home' }}/> 
      <Stack.Screen name="Log in" component={LogIn} options={{ title: '',  headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}} /> 
     <Stack.Screen name="Register" component={Register} options={{ title: '' }} />
     <Stack.Screen name="StartPage" component={StartPage} options={{ title: ' ' }}/>    

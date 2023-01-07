@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const ActionBtn = styled.TouchableOpacity`
 border: 2px solid white;
-min-width: 80%;
+width: 300px;
 background-color: white;
 border-radius: 12px;
 margin: 10px;
@@ -18,7 +18,7 @@ padding: 8px;
 `
 export const AlternativeBtn = styled.TouchableOpacity`
 border: 2px solid white;
-min-width: 80%;
+width: 300px;
 border-radius: 12px;
 margin: 10px;
 `
@@ -29,4 +29,8 @@ text-align: center;
 color: white;
 text-transform: uppercase;
 padding: 8px;
+`
+
+export const ButtonWrap = styled.View`
+margin-top: 40px;
 `

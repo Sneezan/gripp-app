@@ -8,7 +8,7 @@ import user from "../reducers/user.js";
 import { Feather } from '@expo/vector-icons';
 import { Text, Header, HeaderComponent, Requirement } from "../components/TextStyles.js";
 import { LogInput } from "../components/InputStyles.js";
-import { ActionBtn, ActionBtnTxt, AlternativeBtn, AlternativeBtnTxt } from "../components/ButtonStyles.js";
+import { ActionBtn, ActionBtnTxt, AlternativeBtn, AlternativeBtnTxt, ButtonWrap } from "../components/ButtonStyles.js";
 import { MaterialIcons } from '@expo/vector-icons'; 
 import  { Octicons }  from '@expo/vector-icons'
 
@@ -20,7 +20,7 @@ export const Register = ({navigation}) => {
   
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
-
+  const error = useSelector((store) => store.user.error)
   const showPassword = () => {
     setHidePassword(!hidePassword)
   }
@@ -53,7 +53,7 @@ export const Register = ({navigation}) => {
                       dispatch(user.actions.setError(null));
                   });
               } else {
-                  alert("error, could not register ");
+                  //alert("error, could not register - the email already exists ");
                   batch (() => {
                       dispatch(user.actions.setUsername(null));
                       dispatch(user.actions.setEmail(null));
@@ -78,6 +78,7 @@ export const Register = ({navigation}) => {
          <Text> CREATE AN ACCOUNT </Text> 
       </HeaderComponent>
     <View style={styles.SectionStyle} keyboardAppearance='dark'>
+    {error && (<Requirement>{error}</Requirement>)}
     <Feather name="user" size={24} style={styles.userIcon} />
                <LogInput 
                 placeholder="What shall we call you?" 
@@ -112,10 +113,9 @@ export const Register = ({navigation}) => {
                 secureTextEntry={hidePassword === true ? true : false}
                 onChangeText={setPassword}
                 underlineColorAndroid="#f000"
-                returnKeyType="next"/>
-                {password.length > 7 ? (<Requirement>✓</Requirement>) : (<Requirement>password required minimum of 8 characters</Requirement>)}
-
+                returnKeyType="next"/>          
     </View>
+    {password.length > 7 ? (<Requirement>✓</Requirement>) : (<Requirement>password required minimum of 8 characters</Requirement>)}
                <TouchableOpacity onPress={showPassword}>
                   <Octicons
                     name={hidePassword === true ? 'eye-closed' : 'eye'}
@@ -123,13 +123,14 @@ export const Register = ({navigation}) => {
                     style={styles.eyeIcon}
                   />
                 </TouchableOpacity>
+            <ButtonWrap> 
             <ActionBtn 
              onPress={(onFormSubmit)}
              type="submit"><ActionBtnTxt>join now</ActionBtnTxt></ActionBtn>
-            <Text>or</Text>
              <AlternativeBtn 
              onPress={() => navigation.navigate('Log in')}
              type="submit"><AlternativeBtnTxt>Log in here</AlternativeBtnTxt></AlternativeBtn>
+   </ButtonWrap>    
 
     </View>
     </ScrollView>
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
       zIndex: 1,
       position: 'absolute',
       left: 20,
-      bottom: 35,
+      bottom: 20,
     },
     emailIcon: {
       color: 'white',
@@ -164,14 +165,14 @@ const styles = StyleSheet.create({
       zIndex: 1,
       position: 'absolute',
       left: 20,
-      bottom: 145,
+      bottom: 155,
     },
     eyeIcon: {
       color: 'white',
       zIndex: 1,
       position: 'absolute',
-      left: 110,
-      bottom: 30,
+      left: 135,
+      bottom: 35,
     },
     doneIcon: {
       color: 'white',

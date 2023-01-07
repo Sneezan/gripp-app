@@ -5,7 +5,6 @@ import styled from 'styled-components/native'
 import { View, StyleSheet } from 'react-native';
 import { API_URL } from "../utils/utils.js";
 
-
 export const GamePage = () => {
   const [statements, setStatement] = useState([""]);
   const fetchStatements = () => {
@@ -36,7 +35,8 @@ return (
               return (
                 <View style={styles.wrap}>
                 <CardStyle style={styles.card}>
-                    <Text style={styles.text}>{card.statement}</Text>
+                    <Text style={styles.text}>{card.statement} </Text>
+                    <BrandText>Get closer with gripp</BrandText>
                 </CardStyle>
                 </View>
               )
@@ -60,10 +60,20 @@ const styles = StyleSheet.create({
 }); 
 
 const Text = styled.Text`
-color: red;
+color: darkGrey;
 padding: 30px;
 font-size: 30px;
 text-transform: uppercase;
+`
+
+const BrandText = styled.Text`
+color: red;
+font-size: 18px;
+text-transform: uppercase;
+text-align: center;
+position: absolute;
+left: 15%;
+bottom: 20px;
 `
 
 const CardStyle = styled.View`
@@ -71,6 +81,6 @@ width: 330px;
 height: 480px;
 background-color: white ;
 border: 0.3px solid black; 
-border-radius: 5%;   //looks different on phone vs web? 15 good on phone but looks ridiculous on web
+border-radius: 26px;   
 `
 

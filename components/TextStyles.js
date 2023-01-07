@@ -25,5 +25,5 @@ text-align: center;
 export const HeaderComponent = styled.View`
 text-align: center;
 margin-bottom: 50px;
-margin-top: 30%;
+margin-top: 20%;
 `

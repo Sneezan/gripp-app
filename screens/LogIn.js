@@ -7,8 +7,8 @@ import { API_URL } from "../utils/utils.js";
 import user from "../reducers/user.js";
 
 import { LogInput } from "../components/InputStyles.js";
-import { ActionBtn, ActionBtnTxt, AlternativeBtn, AlternativeBtnTxt } from "../components/ButtonStyles.js";
-import { Text, Header, StyledText, HeaderComponent } from "../components/TextStyles.js";
+import { ActionBtn, ActionBtnTxt, AlternativeBtn, AlternativeBtnTxt, ButtonWrap } from "../components/ButtonStyles.js";
+import { Text, Header, StyledText, HeaderComponent, Requirement } from "../components/TextStyles.js";
 import  { Octicons }  from '@expo/vector-icons'
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons'; 
@@ -20,7 +20,8 @@ export const LogIn = ({navigation}) => {
 
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
-  
+  const error = useSelector((store) => store.user.error)
+
   useEffect(() => {
       if (accessToken) {navigation.navigate('StartPage')}  // Auth Navigation Works!!
   }, [accessToken])
@@ -80,7 +81,7 @@ export const LogIn = ({navigation}) => {
       </HeaderComponent>
     <View style={styles.SectionStyle} >
               <LogInput
-                placeholder="email" 
+                placeholder="Enter email" 
                 placeholderTextColor="#fff" 
                 autoCapitalize="none"
                 value={email} 
@@ -95,7 +96,7 @@ export const LogIn = ({navigation}) => {
               <MaterialIcons name="alternate-email" size={24} style={styles.emailIcon} />
               <View style={{width:100}}>
               <LogInput 
-                placeholder="PASSWORD" 
+                placeholder="Enter password" 
                 placeholderTextColor="#fff" 
                 autoCapitalize='none'
                 ref={passwordInputRef}
@@ -109,7 +110,7 @@ export const LogIn = ({navigation}) => {
                 onPress={Keyboard.dismiss}
               /> 
                 </View>
-
+            
                <Feather name="lock" size={24} color="black" style={styles.lockIcon} />
                <TouchableOpacity onPress={showPassword}>
                   <Octicons
@@ -119,15 +120,15 @@ export const LogIn = ({navigation}) => {
                   />
                 </TouchableOpacity>
             </View>
-
+            {error && (<Requirement>{error}</Requirement>)} 
+            <ButtonWrap>           
             <ActionBtn 
              onPress={(onFormSubmit)}
              type="submit"><ActionBtnTxt>get a gripp</ActionBtnTxt></ActionBtn>
-              <Text>or</Text>
              <AlternativeBtn 
              onPress={() => navigation.navigate('Register')}
              type="submit"><AlternativeBtnTxt>join here</AlternativeBtnTxt></AlternativeBtn>
-
+            </ButtonWrap>
     </View>
      </ScrollView>
      <View style={{ height:60 }} />
@@ -147,14 +148,14 @@ const styles = StyleSheet.create({
       zIndex: 1,
       position: 'absolute',
       left: 20,
-      bottom: 65,
+      bottom: 72,
     },
     emailIcon: {
       color: 'white',
       zIndex: 1,
       position: 'absolute',
       left: 20,
-      bottom: 125,
+      bottom: 135,
     },
     eyeIcon: {
       color: 'white',

@@ -9,6 +9,13 @@ export const Welcome = ({navigation}) => {
     <View style={styles.container}>
       <ImageBackground resizeMode={'cover'} // or cover
           style={styles.image} source={require('../assets/SpaceBanner-2.png')}>
+            <View style={styles.textcontainer}> 
+             <View style={styles.textmanipulate}> 
+              <Text>Start</Text>
+              <StyledText>or end</StyledText>
+              <Text>conversation</Text>
+             </View>
+            </View> 
    <View style={styles.manipulate}>
       <View style={styles.other}>
            <ActionBtn onPress={() => navigation.navigate('Log in')}>
@@ -30,26 +37,40 @@ const Text = styled.Text`
 color: #fff;
 font-size: 60px;
 font-family: 'Times New Roman';
+line-height: 55px;
+`
+const StyledText = styled.Text`
+color: #fff;
+font-size: 60px;
+font-family: 'Times New Roman';
 font-style: italic;
+line-height: 55px;
 `
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2d2d2d',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  textcontainer:{
+   marginTop: 400,
+   backgroundColor: '#2d2d2d',
+   paddingTop: 20,
+   alignItems: 'center',
+  },
+  textmanipulate:{
+    marginLeft: 30,
+    width: 350,
   },
   other:{
-    flex: 0.5,
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 0,
   },
   manipulate:{
-    position: 'absolute',
-    bottom: 200,
-    width: 300,
-    left: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#2d2d2d',
+    paddingBottom: 400,
     
   },
    image: {

@@ -26,6 +26,7 @@ const App = () => {
         headerStyle: {
           backgroundColor: '#2d2d2d',
           borderBottomWidth: 0,
+          height: 0,
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -34,10 +35,11 @@ const App = () => {
       }}
     >
      {/* <Stack.Screen name="Splash" component={Splash} options={{ title: 'My home' }}/>   */}
-     <Stack.Screen name="Start" component={Welcome} options={{ title: 'My home' }}/>  
+
+   <Stack.Screen name="Start" component={Welcome} options={{ title: '',  headerStyle: {backgroundColor: '#1d1d1d', borderBottomWidth: 0}}}/>  
     <Stack.Screen name="Log in" component={LogIn} options={{ title: '',  headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}} /> 
-    <Stack.Screen name="Register" component={Register} options={{ title: '' } } />  
-    <Stack.Screen name="StartPage" component={StartPage} options={{ title: '', headerStyle: {backgroundColor: '#F4F2F2', borderBottomWidth: 0}}}/>     
+    <Stack.Screen name="Register" component={Register} options={{ title: '' } } />    
+    <Stack.Screen name="StartPage" component={StartPage} options={{ title: '', headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}}/>     
     <Stack.Screen name="GamePage" component={GamePage} options={{ title: '' }}/> 
     </Stack.Navigator>
     </NavigationContainer>

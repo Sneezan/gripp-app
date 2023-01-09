@@ -8,7 +8,7 @@ export const Welcome = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ImageBackground resizeMode={'cover'} // or cover
-          style={styles.image} source={require('../assets/SpaceBanner-2.png')}>
+          style={styles.image} source={require('../assets/TextureDark3.png')}>
             <View style={styles.textcontainer}> 
              <View style={styles.textmanipulate}> 
               <Text>Start</Text>
@@ -54,8 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textcontainer:{
-   marginTop: 400,
-   backgroundColor: '#2d2d2d',
+   marginTop: 300,
    paddingTop: 20,
    alignItems: 'center',
   },
@@ -69,8 +68,6 @@ const styles = StyleSheet.create({
   manipulate:{
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#2d2d2d',
-    paddingBottom: 400,
     
   },
    image: {

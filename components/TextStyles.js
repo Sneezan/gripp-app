@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 /* Text styles*/ 
 export const Text = styled.Text`
-color: white;
+color: red;
 font-size: 20px; 
 margin: 10px;
 text-align: center;

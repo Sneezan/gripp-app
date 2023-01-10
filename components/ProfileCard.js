@@ -3,14 +3,14 @@ import { View, StyleSheet, ImageBackground} from 'react-native';
 import { useSelector } from "react-redux";
 import styled from 'styled-components/native';
 import { formatRelative } from 'date-fns';
-
 export const ProfileCard = ({navigation}) => {
     const userName = useSelector((store) => store.user.username)
     const userCreated = useSelector((store) => store.user.userCreatedAt)
+//source={require('../assets/Texture.png')}
 
   return (
     <View style={styles.container}>
-      <Card source={require('../assets/Texture.png')}> 
+      <Card> 
       <ProfileWrap>
         <TextWrap>
           <Text>Welcome,</Text>

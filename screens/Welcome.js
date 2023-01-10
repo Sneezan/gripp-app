@@ -3,12 +3,14 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View,  ImageBackground } from 'react-native';
 import styled from 'styled-components/native'
 import { ActionBtn, ActionBtnTxt, AlternativeBtn, AlternativeBtnTxt } from '../components/ButtonStyles';
+//../assets/TextureDark3.png source={require('')}
+
 
 export const Welcome = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <ImageBackground resizeMode={'cover'} // or cover
-          style={styles.image} source={require('../assets/TextureDark3.png')}>
+      <ImageBackground resizeMode={'cover'} source={require('../assets/TextureDark3.png')}
+          style={styles.image} >
             <View style={styles.textcontainer}> 
              <View style={styles.textmanipulate}> 
               <Text>Start</Text>
@@ -74,7 +76,7 @@ const styles = StyleSheet.create({
         flex: 1,
         resizeMode: 'cover',
         width: "100%",
-        flexDirection: 'column'
+        flexDirection: 'column',
 
   }
 });

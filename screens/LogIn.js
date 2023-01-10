@@ -4,8 +4,7 @@ import { useDispatch, useSelector, batch } from "react-redux"
 //import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, TouchableOpacity, KeyboardAvoidingView, Keyboard, ScrollView} from 'react-native';
 import { API_URL } from "../utils/utils.js";
-import user from "../reducers/user.js";
-
+import user from "../reducers/user.js";''
 import { LogInput } from "../components/InputStyles.js";
 import { ActionBtn, ActionBtnTxt, AlternativeBtn, AlternativeBtnTxt, ButtonWrap } from "../components/ButtonStyles.js";
 import { Text, Header, StyledText, HeaderComponent, Requirement } from "../components/TextStyles.js";

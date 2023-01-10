@@ -1,15 +1,14 @@
 import * as React  from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Welcome } from './screens/Welcome';
-import { LogIn } from './screens/LogIn';
-import { StartPage } from './screens/StartPage';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import user from './reducers/user';
-import { GamePage } from './screens/GamePage';
+import { Welcome } from './screens/Welcome';
+import { LogIn } from './screens/LogIn';
 import { Register } from './screens/Register';
-import { Splash } from './screens/Splash';
+import { StartPage } from './screens/StartPage';
+import { GamePage } from './screens/GamePage';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,9 +37,9 @@ const App = () => {
 
    <Stack.Screen name="Start" component={Welcome} options={{ title: '',  headerStyle: {backgroundColor: '#1d1d1d', borderBottomWidth: 0}}}/>  
     <Stack.Screen name="Log in" component={LogIn} options={{ title: '',  headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}} /> 
-    <Stack.Screen name="Register" component={Register} options={{ title: '' } } />    
+    <Stack.Screen name="Register" component={Register} options={{ title: '' , headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}} />    
     <Stack.Screen name="StartPage" component={StartPage} options={{ title: '', headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}}/>     
-    <Stack.Screen name="GamePage" component={GamePage} options={{ title: '' }}/> 
+    <Stack.Screen name="GamePage" component={GamePage} options={{ title: '', headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}}/> 
     </Stack.Navigator>
     </NavigationContainer>
     </Provider>

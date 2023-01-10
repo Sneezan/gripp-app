@@ -7,10 +7,11 @@ import { API_URL } from "../utils/utils.js";
 import user from "../reducers/user.js";
 import { Feather } from '@expo/vector-icons';
 import { Text, Header, HeaderComponent, Requirement } from "../components/TextStyles.js";
-import { LogInput } from "../components/InputStyles.js";
+
 import { ActionBtn, ActionBtnTxt, AlternativeBtn, AlternativeBtnTxt, ButtonWrap } from "../components/ButtonStyles.js";
 import { MaterialIcons } from '@expo/vector-icons'; 
 import  { Octicons }  from '@expo/vector-icons'
+import { LogInput } from "../components/InputStyles.js";
 
 export const Register = ({navigation}) => {
   const [hidePassword, setHidePassword] = useState(true)

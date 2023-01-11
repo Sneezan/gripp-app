@@ -28,7 +28,7 @@ return (
             cardIndex={0}
             infinite={false}
             showSecondCard={true}
-            backgroundColor={'#2d2d2d'}
+            backgroundColor={'#BE284C'}
             stackSize={3}
             animateCardOpacity={false}
             stackAnimationFriction={7}
@@ -51,7 +51,7 @@ return (
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#2d2d2d',
+      backgroundColor: '#7b1930',
       alignItems: 'center',
       justifyContent: 'center',
 
@@ -64,14 +64,16 @@ const styles = StyleSheet.create({
 
 const Text = styled.Text`
 color: #242424;
-padding: 30px;
-font-size: 30px;
+padding: 40px;
+font-size: 28px;
 text-transform: uppercase;
+font-weight: 300;
 `
 
 const BrandText = styled.Text`
 color: #BE284C;
 font-size: 18px;
+font-weight: 600;
 text-transform: uppercase;
 text-align: center;
 position: absolute;
@@ -83,7 +85,7 @@ const CardStyle = styled.View`
 width: 330px;
 height: 480px;
 background-color: #F4F2F2;
-border: 0.3px solid black; 
+border: 0.3px solid #7b1930; 
 border-radius: 26px; 
 margin-top: 10%;
 `

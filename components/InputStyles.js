@@ -6,7 +6,7 @@ export const LogInput = styled.TextInput`
  padding: 10px;
  margin: 8px;
  font-weight:600;
- font-size: 15px;
+ font-size: 18px;
  width: 300px;
  color: white;
  padding-left: 50px;

@@ -23,7 +23,7 @@ const App = () => {
    <Stack.Navigator 
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#2d2d2d',
+          backgroundColor: '#411a23',
           borderBottomWidth: 0,
           height: 0,
         },
@@ -33,13 +33,11 @@ const App = () => {
         },
       }}
     >
-     {/* <Stack.Screen name="Splash" component={Splash} options={{ title: 'My home' }}/>   */}
-
-   <Stack.Screen name="Start" component={Welcome} options={{ title: '',  headerStyle: {backgroundColor: '#1d1d1d', borderBottomWidth: 0}}}/>  
-    <Stack.Screen name="Log in" component={LogIn} options={{ title: '',  headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}} /> 
-    <Stack.Screen name="Register" component={Register} options={{ title: '' , headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}} />    
-    <Stack.Screen name="StartPage" component={StartPage} options={{ title: '', headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}}/>     
-    <Stack.Screen name="GamePage" component={GamePage} options={{ title: '', headerStyle: {backgroundColor: '#830808', borderBottomWidth: 0}}}/> 
+    <Stack.Screen name="Start" component={Welcome} options={{ title: ''}}/>  
+    <Stack.Screen name="Log in" component={LogIn} options={{ title: '',  headerStyle: {backgroundColor: '#7b1930', borderBottomWidth: 0}}} />  
+    <Stack.Screen name="Register" component={Register} options={{ title: '' , headerStyle: {backgroundColor: '#BE284C', borderBottomWidth: 0}}} />    
+    <Stack.Screen name="StartPage" component={StartPage} options={{ title: '', headerStyle: {backgroundColor: '#BE284C', borderBottomWidth: 0}}}/>      
+    <Stack.Screen name="GamePage" component={GamePage} options={{ title: '', headerStyle: {backgroundColor: '#BE284C', borderBottomWidth: 0}}}/> 
     </Stack.Navigator>
     </NavigationContainer>
     </Provider>

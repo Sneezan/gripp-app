@@ -30,11 +30,13 @@ const Text = styled.Text`
 color: #F4F2F2;
 font-size: 32px;
 text-transform: capitalize;
+font-weight: 300;
 `
 const StyledText = styled.Text`
 color: #F4F2F2;
 font-size: 32px;
 font-style: italic;
+font-family: 'Times New Roman';
 text-transform: capitalize;
 `
 const Member = styled.Text`

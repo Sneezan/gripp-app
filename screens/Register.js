@@ -86,7 +86,7 @@ export const Register = ({navigation}) => {
                 autoCapitalize="none"
                 value={username} 
                 onChangeText={setUsername}
-                placeholderTextColor="#7b1930" 
+                placeholderTextColor="#F4F2F2" 
                 returnKeyType="next"
                 onSubmitEditing={() => passwordInputRef.current &&  passwordInputRef.current.focus()}
                 underlineColorAndroid="#f000"
@@ -99,7 +99,7 @@ export const Register = ({navigation}) => {
                 autoCapitalize="none"
                 value={email} 
                 onChangeText={setEmail}
-                placeholderTextColor="#7b1930" 
+                placeholderTextColor="#F4F2F2" 
                 returnKeyType="next"
                 onSubmitEditing={() => passwordInputRef.current &&  passwordInputRef.current.focus()}
                 underlineColorAndroid="#f000"
@@ -110,7 +110,7 @@ export const Register = ({navigation}) => {
                 ref={passwordInputRef}
                 value={password} 
                 blurOnSubmit={false}
-                placeholderTextColor="#7b1930" 
+                placeholderTextColor="#F4F2F2" 
                 secureTextEntry={hidePassword === true ? true : false}
                 onChangeText={setPassword}
                 underlineColorAndroid="#f000"
@@ -159,14 +159,14 @@ const styles = StyleSheet.create({
       zIndex: 1,
       position: 'absolute',
       left: 20,
-      bottom: 90,
+      bottom: 75,
     },
     userIcon: {
       color: 'white',
       zIndex: 1,
       position: 'absolute',
       left: 20,
-      bottom: 155,
+      bottom: 135,
     },
     eyeIcon: {
       color: 'white',

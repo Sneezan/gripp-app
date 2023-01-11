@@ -15,6 +15,7 @@ color: #F4F2F2;
 export const StyledText = styled.Text`
 color: #F4F2F2; 
 font-style: italic;
+font-family: 'Times New Roman';
 `
 export const Requirement = styled.Text`
 color: #F4F2F2; 

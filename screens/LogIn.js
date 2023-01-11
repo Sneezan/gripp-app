@@ -81,7 +81,7 @@ export const LogIn = ({navigation}) => {
     <View style={styles.SectionStyle} >
               <LogInput
                 placeholder="Enter email" 
-                placeholderTextColor="#E7447B" 
+                placeholderTextColor="#F4F2F2" 
                 autoCapitalize="none"
                 value={email} 
                 onChangeText={setEmail}
@@ -96,7 +96,7 @@ export const LogIn = ({navigation}) => {
               <View style={{width:100}}>
               <LogInput 
                 placeholder="Enter password" 
-                placeholderTextColor="#E7447B" 
+                placeholderTextColor="#F4F2F2" 
                 autoCapitalize='none'
                 ref={passwordInputRef}
                 secureTextEntry={hidePassword === true ? true : false}
@@ -143,21 +143,21 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     lockIcon: {
-      color: 'white',
+      color: '#F4F2F2',
       zIndex: 1,
       position: 'absolute',
       left: 20,
-      bottom: 72,
+      bottom: 68,
     },
     emailIcon: {
-      color: 'white',
+      color: '#F4F2F2',
       zIndex: 1,
       position: 'absolute',
       left: 20,
-      bottom: 135,
+      bottom: 125,
     },
     eyeIcon: {
-      color: 'white',
+      color: '#F4F2F2',
       zIndex: 1,
       position: 'absolute',
       right: 25,

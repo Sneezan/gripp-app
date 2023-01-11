@@ -9,7 +9,7 @@ import { ActionBtn, ActionBtnTxt, AlternativeBtn, AlternativeBtnTxt } from '../c
 export const Welcome = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <ImageBackground resizeMode={'cover'} source={require('../assets/TextureDark3.png')}
+      <ImageBackground resizeMode={'cover'} source={require('../assets/front.png')}
           style={styles.image} >
             <View style={styles.textcontainer}> 
              <View style={styles.textmanipulate}> 

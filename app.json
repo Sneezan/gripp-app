@@ -3,6 +3,8 @@
     "name": "Gripp",
     "slug": "gripp",
     "version": "1.0.0",
+    "privacy": "public", 
+    "description": "a party game",
     "orientation": "portrait",
     "icon": "./assets/logoG.png",
     "userInterfaceStyle": "dark",

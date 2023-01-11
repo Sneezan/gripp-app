@@ -51,7 +51,7 @@ return (
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#7b1930',
+      backgroundColor: '#BE284C',
       alignItems: 'center',
       justifyContent: 'center',
 
@@ -87,6 +87,6 @@ height: 480px;
 background-color: #F4F2F2;
 border: 0.3px solid #7b1930; 
 border-radius: 26px; 
-margin-top: 10%;
+margin-top: 8%;
 `
 

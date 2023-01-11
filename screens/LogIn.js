@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
       bottom: 20,
     },
     SectionStyle: {
-      paddingTop: 10,
+      paddingTop: 5 + '%',
       paddingBottom: 50,
     }
   });

@@ -46,7 +46,7 @@ color: #F4F2F2;
 padding-top: 4px;
 `
 const Card = styled.ImageBackground`
-flex: 0.45;
+height: 270px;
 display: flex;
 background-color: #BE284C;
 `
@@ -56,6 +56,7 @@ align-items: center;
 `
 const TextWrap = styled.View`
 width: 80%;
+margin-top: -10%;
 `
 const Line = styled.View`
 border: 1px solid #F4F2F2;

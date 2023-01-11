@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#BE284C',
       alignItems: 'center',
       justifyContent: 'center',
+      
     },
     lockIcon: {
       color: 'white',

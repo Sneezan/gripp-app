@@ -32,5 +32,5 @@ padding: 8px;
 `
 
 export const ButtonWrap = styled.View`
-margin-top: 40px;
+margin-top: 20px;
 `

@@ -8,7 +8,10 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
+# web-build/
 
 # macOS
 .DS_Store
+
+# Local Netlify folder
+.netlify

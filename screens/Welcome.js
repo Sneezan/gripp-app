@@ -36,17 +36,17 @@ export const Welcome = ({navigation}) => {
 }
 
 const Text = styled.Text`
-color: #F4F2F2;
-font-size: 60px;
+color: red;
+font-size: 55px;
 font-family: 'Times New Roman';
 line-height: 55px;
 `
 const StyledText = styled.Text`
 color: #F4F2F2;
-font-size: 60px;
+font-size: 55px;
 font-family: 'Times New Roman';
 font-style: italic;
-line-height: 55px;
+line-height: 50px;
 `
 
 const styles = StyleSheet.create({

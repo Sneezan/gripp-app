@@ -36,7 +36,7 @@ export const Welcome = ({navigation}) => {
 }
 
 const Text = styled.Text`
-color: red;
+color: #F4F2F2;
 font-size: 55px;
 font-family: 'Times New Roman';
 line-height: 55px;

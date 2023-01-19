@@ -33,7 +33,7 @@ const App = () => {
         },
       }}
     >
-    <Stack.Screen name="Start" component={Welcome} options={{ title: ''}}/>  
+    <Stack.Screen name="Start" component={Welcome} options={{ title: '',  headerStyle: {backgroundColor: '#411a23', borderBottomWidth: 0}}} /> 
     <Stack.Screen name="Log in" component={LogIn} options={{ title: '',  headerStyle: {backgroundColor: '#7b1930', borderBottomWidth: 0}}} />  
     <Stack.Screen name="Register" component={Register} options={{ title: '' , headerStyle: {backgroundColor: '#BE284C', borderBottomWidth: 0}}} />    
     <Stack.Screen name="StartPage" component={StartPage} options={{ title: '', headerStyle: {backgroundColor: '#BE284C', borderBottomWidth: 0}}}/>       

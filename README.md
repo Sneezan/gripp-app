@@ -1,1 +1,3 @@
-# gripp-app
+# gripp - a social ice-breaker game
+
+

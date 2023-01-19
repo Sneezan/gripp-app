@@ -30,6 +30,10 @@ The project was first planned and plottet out using Notion and Figma. The projec
 - Database of choice is MongoDB
 - Register credentials are encrypted and stored in the database using mongoose schemas and models. 
 
+## Deployment
+This project is currently not deployed as an app, but exported as web-build using the 
+expo Netlify Cli, for easier distribution and demo. 
+
 ## Links
 Backend https://github.com/Sneezan/gripp-backend
 Landing Page https://github.com/Sneezan/project-gripp

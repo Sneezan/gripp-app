@@ -29,6 +29,8 @@ return (
             infinite={false}
             showSecondCard={true}
             backgroundColor={'#BE284C'}
+            disableBottomSwipe={true}
+            disableTopSwipe={true}
             stackSize={3}
             animateCardOpacity={false}
             stackAnimationFriction={7}

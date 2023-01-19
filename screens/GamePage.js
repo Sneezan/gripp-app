@@ -89,6 +89,6 @@ height: 480px;
 background-color: #F4F2F2;
 border: 0.3px solid #7b1930; 
 border-radius: 26px; 
-margin-top: 8%;
+margin-top: 5%;
 `
 

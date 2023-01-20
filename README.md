@@ -37,3 +37,8 @@ expo Netlify Cli, for easier distribution and demo.
 ## Links
 Backend https://github.com/Sneezan/gripp-backend
 Landing Page https://github.com/Sneezan/project-gripp
+
+## mockups
+![MockUpsGripp](https://user-images.githubusercontent.com/105229808/213722549-b3ea9896-00f2-44d6-af1d-d070f91379a4.png)
+
+

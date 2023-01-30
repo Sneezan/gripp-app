@@ -3,8 +3,6 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View,  ImageBackground } from 'react-native';
 import styled from 'styled-components/native'
 import { ActionBtn, ActionBtnTxt, AlternativeBtn, AlternativeBtnTxt } from '../components/ButtonStyles';
-//../assets/TextureDark3.png source={require('')}
-
 
 export const Welcome = ({navigation}) => {
   return (

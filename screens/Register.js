@@ -79,7 +79,6 @@ export const Register = ({navigation}) => {
          <Text> CREATE AN ACCOUNT </Text> 
       </HeaderComponent>
     <View style={styles.SectionStyle} keyboardAppearance='dark'>
-    {error && (<Requirement>{error}</Requirement>)}
     <Feather name="user" size={24} style={styles.userIcon} />
                <LogInput 
                 placeholder="What shall we call you?" 
@@ -125,6 +124,7 @@ export const Register = ({navigation}) => {
                   />
                 </TouchableOpacity>
             <ButtonWrap> 
+            {error && (<Requirement>{error}</Requirement>)}
             <ActionBtn 
              onPress={(onFormSubmit)}
              type="submit"><ActionBtnTxt>join now</ActionBtnTxt></ActionBtn>

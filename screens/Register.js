@@ -49,7 +49,8 @@ export const Register = ({navigation}) => {
                   batch(()=> {
                       dispatch(user.actions.setUsername(data.response.username));
                       dispatch(user.actions.setEmail(data.response.email));
-                      dispatch(user.actions.setUserId(data.response.id))
+                      dispatch(user.actions.setUserId(data.response.id));
+                      dispatch(user.actions.setMember(data.response.userCreatedAt));
                       dispatch(user.actions.setAccessToken(data.response.accessToken));
                       dispatch(user.actions.setError(null));
                   });
@@ -59,6 +60,7 @@ export const Register = ({navigation}) => {
                       dispatch(user.actions.setUsername(null));
                       dispatch(user.actions.setEmail(null));
                       dispatch(user.actions.setUserId(null));
+                      dispatch(user.actions.setMember(data.response.userCreatedAt));
                       dispatch(user.actions.setAccessToken(null));
                       dispatch(user.actions.setError(data.response));
                   });

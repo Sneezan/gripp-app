@@ -25,6 +25,7 @@ export const ProfileCard = ({navigation}) => {
 }
 
 
+
 const Text = styled.Text`
 color: #F4F2F2;
 font-size: 32px;

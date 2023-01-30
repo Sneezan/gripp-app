@@ -1,4 +1,4 @@
-const BASE_URL = "https://grip-backend-eom6wfm7xa-uc.a.run.app/";
+const BASE_URL = "http://localhost:8080";
 
 export const API_URL = (slug) => `${BASE_URL}/${slug}`;
 

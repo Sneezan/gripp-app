@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, ImageBackground} from 'react-native';
 import { useSelector } from "react-redux";
 import styled from 'styled-components/native';
-import { format } from 'date-fns';
+import { formatRelative } from 'date-fns';
 export const ProfileCard = ({navigation}) => {
     const userName = useSelector((store) => store.user.username)
     const userCreated = useSelector((store) => store.user.userCreatedAt)
@@ -15,7 +15,7 @@ export const ProfileCard = ({navigation}) => {
           <Text>Welcome,</Text>
           <StyledText>{userName}</StyledText>
           <Line />
-          <Member> Member since {format(new Date(userCreated), 'yyyy-MM-dd')} </Member>
+          <Member> Member since {formatRelative(new Date(), new Date(userCreated))} </Member>
         </TextWrap>
       </ProfileWrap>
       </Card> 

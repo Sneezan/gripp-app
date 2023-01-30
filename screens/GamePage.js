@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-// import styled from 'styled-components/native'
 import Swiper from 'react-native-deck-swiper'
 import styled from 'styled-components/native'
 import { View, StyleSheet } from 'react-native';
@@ -8,7 +7,7 @@ import { API_URL } from "../utils/utils.js";
 export const GamePage = () => {
   const [statements, setStatement] = useState([""]);
   const fetchStatements = () => {
-   fetch(API_URL('statements'))  //statements can't be on local host when viewing expo IOS
+   fetch(API_URL('statements'))  
   .then((res) => res.json())
   .then((data) => {
     setStatement(data.body)
@@ -24,7 +23,6 @@ return (
 <View style={styles.container}>
         <Swiper 
             cards={statements} 
-            onSwiped={(cardIndex) => {console.log(cardIndex)}}
             cardIndex={0}
             infinite={false}
             showSecondCard={true}
@@ -34,7 +32,6 @@ return (
             stackSize={3}
             animateCardOpacity={false}
             stackAnimationFriction={7}
-            onSwipedAll={() => {console.log('onSwipedAll')}}
             renderCard={(card)=> {
               return (
                 <View style={styles.wrap}>

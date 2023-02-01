@@ -6,7 +6,7 @@ import { formatRelative } from 'date-fns';
 export const ProfileCard = ({navigation}) => {
     const userName = useSelector((store) => store.user.username)
     const userCreated = useSelector((store) => store.user.userCreatedAt)
-    const date = formatRelative(new Date(userCreated), new Date(userCreated));
+    const date = formatRelative(new Date(userCreated), new Date());
 
   return (
     <View style={styles.container}>
